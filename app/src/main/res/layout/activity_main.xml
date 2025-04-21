@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.MainActivity">
+
+    <!-- Konten Utama -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Image Illustration -->
+        <ImageView
+            android:id="@+id/illustration"
+            android:layout_width="370dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="62dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/dashboard_image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Heading Title -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_to"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/lexenddecaregular"
+            app:layout_constraintTop_toBottomOf="@id/illustration"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Logo Container -->
+        <LinearLayout
+            android:id="@+id/logo_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sense"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/lexenddecaregular" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/visor"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                android:textColor="@color/red"
+                android:fontFamily="@font/lexenddecaregular" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- BottomSheet yang bisa di-swipe -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomCard"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:background="@drawable/bg_bottom_card"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="150dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <View
+            android:id="@+id/desc_indicator"
+            android:layout_width="40dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_handle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="@string/dasboard_title"
+            android:textSize="30sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/lexenddecaregular"
+            app:layout_constraintTop_toBottomOf="@id/desc_indicator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/btnGetStarted"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="80dp"
+            android:text="@string/get_started"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:backgroundTint="@color/kindablack"
+            android:fontFamily="@font/lexenddecaregular"
+            app:layout_constraintTop_toBottomOf="@id/desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
