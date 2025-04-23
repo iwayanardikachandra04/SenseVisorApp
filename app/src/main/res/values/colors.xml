@@ -3,9 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="kindablack">#1E232C</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="kindawhite">#E2E6EA</color>
     <color name="blue">#1F81D6</color>
     <color name="red">#D04246</color>
     <color name="kindablue">#5EADB4</color>
     <color name="grey">#6A707C</color>
     <color name="kindagrey">#646464</color>
+    <color name="greyblue">#4C6880</color>
 </resources>

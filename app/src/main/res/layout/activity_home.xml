@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.HomeActivity">
+
+    <!-- Background image -->
+    <ImageView
+        android:id="@+id/imgBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_background"
+        android:alpha="0.15"
+        android:contentDescription="@null" />
+
+    <!--Welcome User-->
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_wayan"
+        android:textColor="@color/kindablack"
+        android:textStyle="bold"
+        android:fontFamily="@font/lexenddecasemibold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="64dp" />
+
+    <!--Exit Button-->
+    <ImageButton
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/logout"
+        android:src="@drawable/ic_exit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!--Id user-->
+    <TextView
+        android:id="@+id/tvUserId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mz001234"
+        android:textColor="@color/kindablue"
+        android:fontFamily="@font/lexenddecaregular"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+        app:layout_constraintStart_toStartOf="@id/tvWelcome"
+        android:layout_marginTop="4dp" />
+
+    <!--Time-->
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_09_15_am"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="@color/kindablack"
+        android:fontFamily="@font/lexenddecasemibold"
+        app:layout_constraintTop_toBottomOf="@id/tvUserId"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="78dp" />
+
+    <!--Date-->
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mar_19_2025_wednesday"
+        android:textSize="14sp"
+        android:textColor="@color/grey"
+        android:fontFamily="@font/lexenddecalight"
+        app:layout_constraintTop_toBottomOf="@id/tvTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <!--Analyze Button-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnAnalyze"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="80dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="80dp"
+        app:strokeWidth="0dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@id/tvDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_analyze_button"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_touch" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tap_to_analyze"
+                android:textStyle="bold"
+                android:fontFamily="@font/lexenddecabold"
+                android:textSize="12sp"
+                android:textColor="@color/kindablack"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--Navigation-->
+    <LinearLayout
+        android:id="@+id/navigationContainer"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/bg_nav_container"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btnHome"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:fontFamily="@font/lexenddecasemibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/greyblue"
+            android:text="@string/home"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_home"
+            app:iconTint="@android:color/white"
+            app:iconPadding="8dp"
+            app:iconGravity="textStart"
+            app:cornerRadius="32dp" />
+
+        <Button
+            android:id="@+id/btnHistory"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:fontFamily="@font/lexenddecasemibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:backgroundTint="@color/greyblue"
+            android:text="@string/history"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_history"
+            app:iconTint="@android:color/white"
+            app:iconPadding="8dp"
+            app:iconGravity="textStart"
+            app:cornerRadius="32dp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

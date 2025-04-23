@@ -20,10 +20,19 @@ class LoginActivity : AppCompatActivity() {
         binding.tvRegisterNow.setOnClickListener {
             goToRegister()
         }
+
+        binding.btnLogin.setOnClickListener {
+            goToHome()
+        }
     }
 
     private fun goToRegister() {
         val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToHome() {
+        val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
     }
 }

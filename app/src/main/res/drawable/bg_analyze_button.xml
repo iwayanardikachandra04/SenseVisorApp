@@ -1,0 +1,26 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Outer shadow ring -->
+    <item>
+        <shape android:shape="oval">
+            <size android:width="160dp" android:height="160dp" />
+            <solid android:color="#E6EEF1" />
+        </shape>
+    </item>
+
+    <!-- Middle light ring -->
+    <item android:top="8dp" android:bottom="8dp" android:left="8dp" android:right="8dp">
+        <shape android:shape="oval">
+            <solid android:color="#F5F7F8" />
+        </shape>
+    </item>
+
+    <!-- Inner circle -->
+    <item android:top="16dp" android:bottom="16dp" android:left="16dp" android:right="16dp">
+        <shape android:shape="oval">
+            <solid android:color="@android:color/white" />
+            <stroke android:width="1dp" android:color="@color/kindawhite" />
+        </shape>
+    </item>
+
+</layer-list>

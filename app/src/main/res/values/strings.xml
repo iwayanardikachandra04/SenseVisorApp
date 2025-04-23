@@ -8,7 +8,6 @@
     <string name="dasboard_title">Helping You Navigate\nThrough Your Emotions.</string>
     <string name="get_started">Get Started</string>
 
-
     <!--Login and Register-->
     <string name="welcome_back">Welcome Back!</string>
     <string name="to_sensevisor">To SenseVisor</string>
@@ -31,5 +30,15 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm password</string>
+
+    <!--Home-->
+    <string name="history">History</string>
+    <string name="home">Home</string>
+    <string name="tap_to_analyze">TAP TO ANALYZE</string>
+    <string name="_09_15_am">09:15 AM</string>
+    <string name="mar_19_2025_wednesday">Mar 19, 2025 - Wednesday</string>
+    <string name="mz001234">MZ001234</string>
+    <string name="welcome_wayan">Welcome, Wayan</string>
+    <string name="logout">Logout</string>
 
 </resources>
