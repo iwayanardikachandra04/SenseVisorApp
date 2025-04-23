@@ -1,4 +1,4 @@
-package com.example.sensevisor.ui.utils
+package com.example.sensevisor.utils
 
 import android.view.View
 import com.google.android.material.bottomsheet.BottomSheetBehavior

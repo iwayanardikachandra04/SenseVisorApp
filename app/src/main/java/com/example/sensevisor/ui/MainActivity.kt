@@ -1,10 +1,11 @@
 package com.example.sensevisor.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sensevisor.databinding.ActivityMainBinding
-import com.example.sensevisor.ui.utils.AnimationUtils
+import com.example.sensevisor.utils.AnimationUtils
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +40,9 @@ class MainActivity : AppCompatActivity() {
     private fun setupListeners() {
         binding.btnGetStarted.setOnClickListener {
             AnimationUtils.toggleBottomSheet(bottomSheetBehavior)
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

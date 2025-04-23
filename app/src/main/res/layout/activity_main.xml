@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".ui.MainActivity">
 
     <!-- Konten Utama -->
@@ -115,6 +114,7 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textStyle="bold"
+            app:cornerRadius="8dp"
             android:backgroundTint="@color/kindablack"
             android:fontFamily="@font/lexenddecaregular"
             app:layout_constraintTop_toBottomOf="@id/desc"

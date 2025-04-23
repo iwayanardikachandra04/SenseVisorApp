@@ -6,4 +6,6 @@
     <color name="blue">#1F81D6</color>
     <color name="red">#D04246</color>
     <color name="kindablue">#5EADB4</color>
+    <color name="grey">#6A707C</color>
+    <color name="kindagrey">#646464</color>
 </resources>
