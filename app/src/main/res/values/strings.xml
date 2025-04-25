@@ -41,4 +41,20 @@
     <string name="welcome_wayan">Welcome, Wayan</string>
     <string name="logout">Logout</string>
 
+
+    <!-- Question One-->
+    <string name="step_1_of_3">Step 1 of 3</string>
+    <string name="what_type_of_problem_are_you_facing">What type of problem are you facing?</string>
+    <string name="personal_problem">Personal Problem</string>
+    <string name="emotional_problem">Emotional Problem</string>
+    <string name="social_problem">Social Problem</string>
+    <string name="other">Other...</string>
+
+    <!-- Question Two-->
+    <string name="step_2_of_3">Step 2 of 3</string>
+    <string name="please_describe_the_issues">Please describe the issues you’re currently facing in more detail.</string>
+    <string name="lorem_ipsum_dolor">Lorem Ipsum Dolor</string>
+    <string name="next">Next\n</string>
+
+
 </resources>

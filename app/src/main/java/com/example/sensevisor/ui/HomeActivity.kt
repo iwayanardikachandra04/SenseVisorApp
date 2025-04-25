@@ -1,5 +1,6 @@
 package com.example.sensevisor.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -20,10 +21,16 @@ class HomeActivity : AppCompatActivity() {
 
         binding.btnAnalyze.setOnClickListener {
             Toast.makeText(this, "Analyze clicked!", Toast.LENGTH_SHORT).show()
+            goToQuestionOne()
         }
 
         DateTimeUtils.startDateTimeUpdater(binding.tvTime, binding.tvDate)
 
+    }
+
+    private fun goToQuestionOne() {
+        val intent = Intent(this, QuestionOneActivity::class.java)
+        startActivity(intent)
     }
 
 }
