@@ -1,10 +1,9 @@
 package com.example.sensevisor.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.sensevisor.databinding.ActivityQuestionSecondBinding
 
 class QuestionSecondActivity : AppCompatActivity() {
@@ -18,10 +17,13 @@ class QuestionSecondActivity : AppCompatActivity() {
         binding = ActivityQuestionSecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding.btnNext.setOnClickListener {
+            goToThird()
         }
+    }
+
+    private fun goToThird() {
+        val intent = Intent(this, QuestionThirdActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -48,13 +48,33 @@
     <string name="personal_problem">Personal Problem</string>
     <string name="emotional_problem">Emotional Problem</string>
     <string name="social_problem">Social Problem</string>
-    <string name="other">Other...</string>
+    <string name="other">Other…</string>
 
     <!-- Question Two-->
     <string name="step_2_of_3">Step 2 of 3</string>
     <string name="please_describe_the_issues">Please describe the issues you’re currently facing in more detail.</string>
     <string name="lorem_ipsum_dolor">Lorem Ipsum Dolor</string>
     <string name="next">Next\n</string>
+
+    <!-- Analyze Page-->
+    <string name="step_3_of_3">Step 3 of 3</string>
+    <string name="camera">Camera</string>
+    <string name="choose_file">Choose File</string>
+    <string name="analyze">Analyze</string>
+    <string name="prepare_for_emotion_analysis">prepare for emotion analysis</string>
+
+    <!--Result Prediction-->
+    <string name="prediction_result">PREDICTION RESULT</string>
+    <string name="i_wayan_ardika_chandra">I Wayan Ardika Chandra</string>
+    <string name="doloripsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="get_counselor_recommendation">Get Counselor Recommendation</string>
+    <string name="save_result">Save Result</string>
+
+    <!-- History -->
+    <string name="delete_all">Delete All</string>
+    <string name="_12_00_am">12:00 AM</string>
+    <string name="_19_march_2025">19 March, 2025</string>
+    <string name="history_prediction">HISTORY PREDICTION</string>
 
 
 </resources>
