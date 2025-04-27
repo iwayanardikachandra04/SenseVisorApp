@@ -76,5 +76,8 @@
     <string name="_19_march_2025">19 March, 2025</string>
     <string name="history_prediction">HISTORY PREDICTION</string>
 
+    <!-- History Detail-->
+    <string name="angry">Angry</string>
+
 
 </resources>
