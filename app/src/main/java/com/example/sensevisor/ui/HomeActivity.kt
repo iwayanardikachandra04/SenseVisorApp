@@ -24,12 +24,21 @@ class HomeActivity : AppCompatActivity() {
             goToQuestionOne()
         }
 
+        binding.btnHistory.setOnClickListener {
+            goToHistory()
+        }
+
         DateTimeUtils.startDateTimeUpdater(binding.tvTime, binding.tvDate)
 
     }
 
     private fun goToQuestionOne() {
         val intent = Intent(this, QuestionOneActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToHistory() {
+        val intent = Intent(this, HistoryActivity::class.java)
         startActivity(intent)
     }
 
