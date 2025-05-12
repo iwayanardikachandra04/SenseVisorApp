@@ -24,6 +24,10 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             goToHome()
         }
+
+        binding.tvForgotPassword.setOnClickListener {
+            goToForgotPassword()
+        }
     }
 
     private fun goToRegister() {
@@ -33,6 +37,11 @@ class LoginActivity : AppCompatActivity() {
 
     private fun goToHome() {
         val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToForgotPassword() {
+        val intent = Intent(this, ForgotPasswordActivity::class.java)
         startActivity(intent)
     }
 }

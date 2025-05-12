@@ -79,5 +79,11 @@
     <!-- History Detail-->
     <string name="angry">Angry</string>
 
+    <!--Forgot Password-->
+    <string name="pass">Forgot Password</string>
+    <string name="please_enter_your_email">Please Enter Your Email!</string>
+    <string name="submit">Submit</string>
+    <string name="back">Back</string>
+
 
 </resources>
