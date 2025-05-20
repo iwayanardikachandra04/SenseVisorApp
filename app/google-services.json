@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "380355385213",
+    "project_id": "sensevisorapp",
+    "storage_bucket": "sensevisorapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380355385213:android:d6e622a772d5cd9a77de14",
+        "android_client_info": {
+          "package_name": "com.example.sensevisor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380355385213-eild3r13m5dbj8b7p6fiv0hh1al2jtsa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sensevisor",
+            "certificate_hash": "70c7cba7c7b11870372904d092b3fd5c365c285b"
+          }
+        },
+        {
+          "client_id": "380355385213-s55du16bbskrhgpg3ttgo0591n7gc69d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACEajQ448FQlXgcMm597AMXBMv9eOBMKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380355385213-s55du16bbskrhgpg3ttgo0591n7gc69d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

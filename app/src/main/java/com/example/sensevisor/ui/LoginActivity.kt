@@ -2,13 +2,16 @@ package com.example.sensevisor.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sensevisor.databinding.ActivityLoginBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,12 +20,18 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        setupListeners()
+    }
+
+    private fun setupListeners() {
         binding.tvRegisterNow.setOnClickListener {
             goToRegister()
         }
 
         binding.btnLogin.setOnClickListener {
-            goToHome()
+            handleLogin()
         }
 
         binding.tvForgotPassword.setOnClickListener {
@@ -30,18 +39,40 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun handleLogin() {
+        val email = binding.etEmail.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
+
+        if (email.isEmpty() || password.isEmpty()) {
+            showToast("Please enter email and password")
+            return
+        }
+
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    showToast("Login successful")
+                    goToHome()
+                } else {
+                    showToast("Login failed: ${task.exception?.message}")
+                }
+            }
+    }
+
     private fun goToRegister() {
-        val intent = Intent(this, RegisterActivity::class.java)
-        startActivity(intent)
+        startActivity(Intent(this, RegisterActivity::class.java))
     }
 
     private fun goToHome() {
-        val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)
+        startActivity(Intent(this, HomeActivity::class.java))
+        finish()
     }
 
     private fun goToForgotPassword() {
-        val intent = Intent(this, ForgotPasswordActivity::class.java)
-        startActivity(intent)
+        startActivity(Intent(this, ForgotPasswordActivity::class.java))
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.sensevisor" />
+                  <option name="mobileSdkAppId" value="1:380355385213:android:d6e622a772d5cd9a77de14" />
+                  <option name="projectId" value="sensevisorapp" />
+                  <option name="projectNumber" value="380355385213" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
