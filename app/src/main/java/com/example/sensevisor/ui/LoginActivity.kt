@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sensevisor.databinding.ActivityLoginBinding
+import com.example.sensevisor.utils.ViewUtils
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
@@ -20,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        ViewUtils.setupPasswordToggle(binding.etPassword)
         firebaseAuth = FirebaseAuth.getInstance()
 
         setupListeners()
@@ -75,4 +77,5 @@ class LoginActivity : AppCompatActivity() {
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
 }
