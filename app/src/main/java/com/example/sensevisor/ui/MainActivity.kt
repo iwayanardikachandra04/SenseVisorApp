@@ -7,11 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.sensevisor.databinding.ActivityMainBinding
 import com.example.sensevisor.utils.AnimationUtils
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<*>
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,30 @@ class MainActivity : AppCompatActivity() {
         //Dashboard Swipe
         setupUI()
         setupListeners()
+
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        if (firebaseAuth.currentUser != null) {
+            navigateToHome()
+            return
+        }
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnGetStarted.setOnClickListener {
+            navigateToLogin()
+        }
+    }
+
+    private fun navigateToHome() {
+        startActivity(Intent(this, HomeActivity::class.java))
+        finish()
+    }
+
+    private fun navigateToLogin() {
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
     private fun setupUI() {

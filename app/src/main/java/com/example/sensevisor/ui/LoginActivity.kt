@@ -18,14 +18,21 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        if (firebaseAuth.currentUser != null) {
+            goToHome()
+            finish()
+            return
+        }
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewUtils.setupPasswordToggle(binding.etPassword)
-        firebaseAuth = FirebaseAuth.getInstance()
-
         setupListeners()
     }
+
 
     private fun setupListeners() {
         binding.tvRegisterNow.setOnClickListener {

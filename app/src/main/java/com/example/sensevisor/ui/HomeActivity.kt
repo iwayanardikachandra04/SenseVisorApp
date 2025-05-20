@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sensevisor.databinding.ActivityHomeBinding
 import com.example.sensevisor.utils.DateTimeUtils
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {
 
@@ -26,6 +27,12 @@ class HomeActivity : AppCompatActivity() {
 
         binding.btnHistory.setOnClickListener {
             goToHistory()
+        }
+
+        binding.btnLogout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
 
         DateTimeUtils.startDateTimeUpdater(binding.tvTime, binding.tvDate)

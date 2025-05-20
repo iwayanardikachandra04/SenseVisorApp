@@ -26,7 +26,7 @@ object ViewUtils {
 
         editText.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_UP) {
-                val drawableEnd = 2 // index for drawableEnd
+                val drawableEnd = 2
                 val drawable = editText.compoundDrawables[drawableEnd]
                 if (drawable != null) {
                     val drawableWidth = drawable.bounds.width()
