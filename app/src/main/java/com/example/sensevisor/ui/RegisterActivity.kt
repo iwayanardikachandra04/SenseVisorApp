@@ -2,10 +2,12 @@ package com.example.sensevisor.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sensevisor.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -16,6 +18,9 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        window.statusBarColor = resources.getColor(android.R.color.white)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 
         initFirebase()
         setupListeners()
@@ -43,7 +48,7 @@ class RegisterActivity : AppCompatActivity() {
 
         if (!validateInput(email, username, password, confirmPassword)) return
 
-        registerUser(email, password)
+        registerUser(email, password, username)
     }
 
     private fun validateInput(
@@ -65,12 +70,20 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun registerUser(email: String, password: String) {
+    private fun registerUser(email: String, password: String, username: String) {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    showToast("Registration successful")
-                    navigateToLogin()
+                    val user = firebaseAuth.currentUser
+                    val profileUpdates = UserProfileChangeRequest.Builder()
+                        .setDisplayName(username)
+                        .build()
+
+                    user?.updateProfile(profileUpdates)?.addOnCompleteListener {
+                        FirebaseAuth.getInstance().signOut()
+                        showToast("Registration successful")
+                        navigateToLogin()
+                    }
                 } else {
                     showToast("Registration failed: ${task.exception?.message}")
                 }
