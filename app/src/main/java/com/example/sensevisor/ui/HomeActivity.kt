@@ -3,8 +3,12 @@ package com.example.sensevisor.ui
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sensevisor.databinding.ActivityHomeBinding
 import com.example.sensevisor.utils.DateTimeUtils
@@ -47,10 +51,21 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.btnLogout.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+            AlertDialog.Builder(this)
+                .setTitle("Log Out")
+                .setMessage("Are you sure you want to log out?")
+                .setPositiveButton("Yes") { _, _ ->
+                    showLoading(true)
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        FirebaseAuth.getInstance().signOut()
+                        startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
+                    }, 2000)
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
         }
+
     }
 
     private fun goToQuestionOne() {
@@ -60,4 +75,9 @@ class HomeActivity : AppCompatActivity() {
     private fun goToHistory() {
         startActivity(Intent(this, HistoryActivity::class.java))
     }
+
+    private fun showLoading(show: Boolean) {
+        binding.loadingOverlay.visibility = if (show) View.VISIBLE else View.GONE
+    }
+
 }

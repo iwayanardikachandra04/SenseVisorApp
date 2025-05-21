@@ -48,6 +48,7 @@ class RegisterActivity : AppCompatActivity() {
 
         if (!validateInput(email, username, password, confirmPassword)) return
 
+        showLoading(true)
         registerUser(email, password, username)
     }
 
@@ -73,6 +74,8 @@ class RegisterActivity : AppCompatActivity() {
     private fun registerUser(email: String, password: String, username: String) {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
+                showLoading(false)
+
                 if (task.isSuccessful) {
                     val user = firebaseAuth.currentUser
                     val profileUpdates = UserProfileChangeRequest.Builder()
@@ -93,6 +96,10 @@ class RegisterActivity : AppCompatActivity() {
     private fun navigateToLogin() {
         startActivity(Intent(this, LoginActivity::class.java))
         finish()
+    }
+
+    private fun showLoading(show: Boolean) {
+        binding.loadingOverlay.visibility = if (show) View.VISIBLE else View.GONE
     }
 
     private fun showToast(message: String) {

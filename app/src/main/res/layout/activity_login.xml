@@ -1,183 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fillViewport="true"
-    android:background="@android:color/white">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="start">
-
-        <!-- Logo -->
-        <ImageView
-            android:id="@+id/imgLogo"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/sign_logo"
-            android:contentDescription="@string/app_name"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Welcome Text -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome_back"
-            android:fontFamily="@font/lexenddecasemibold"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/grey" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/to_sensevisor"
-            android:textColor="@color/blue"
-            android:fontFamily="@font/lexenddecabold"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hello_there"
-            android:fontFamily="@font/lexenddecalight"
-            android:textColor="@color/kindagrey"
-            android:textSize="14sp"
-            android:layout_marginBottom="24dp" />
-
-        <!-- Email Field -->
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="@string/enter_email"
-            android:fontFamily="@font/lexenddecamedium"
-            android:background="@drawable/bg_edittext_rounded"
-            android:padding="12dp"
-            android:inputType="textEmailAddress"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Password Field -->
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="@string/enter_password"
-            android:fontFamily="@font/lexenddecamedium"
-            android:background="@drawable/bg_edittext_rounded"
-            android:padding="12dp"
-            android:inputType="textPassword"
-            android:drawableEnd="@drawable/ic_eye"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Forgot Password -->
-        <TextView
-            android:id="@+id/tvForgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/forgot_password"
-            android:fontFamily="@font/lexenddecasemibold"
-            android:textColor="@color/grey"
-            android:textSize="14sp"
-            android:layout_gravity="end"
-            android:layout_marginBottom="24dp" />
-
-        <!-- Login Button -->
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="@string/login"
-            android:textColor="@android:color/white"
-            android:fontFamily="@font/lexenddecasemibold"
-            android:backgroundTint="@color/kindablack"
-            android:textStyle="bold"
-            app:cornerRadius="8dp"
-            android:layout_marginBottom="32dp" />
-
-        <!-- Or Login With -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="24dp">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="2"
-                android:background="@color/grey"
-                android:layout_marginEnd="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/or_login"
-                android:fontFamily="@font/lexenddecabold"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@color/grey" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="2"
-                android:background="@color/grey"
-                android:layout_marginStart="8dp" />
-        </LinearLayout>
-
-
-        <!-- Google Login -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnGoogleLogin"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="@string/google_account"
-            android:fontFamily="@font/lexenddecasemibold"
-            android:backgroundTint="@color/kindablue"
-            app:icon="@drawable/icon_google"
-            app:iconTintMode="multiply"
-            app:elevation="8dp"
-            app:cornerRadius="8dp"
-            android:textAllCaps="false"
-            android:drawableStart="@drawable/icon_google"
-            android:textColor="@android:color/white" />
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="32dp">
+            android:gravity="start"
+            android:orientation="vertical"
+            android:padding="24dp">
 
+            <!-- Logo -->
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/sign_logo" />
+
+            <!-- Welcome Text -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:text="@string/dont_have_account"
+                android:fontFamily="@font/lexenddecasemibold"
+                android:text="@string/welcome_back"
                 android:textColor="@color/grey"
-                android:textSize="14sp"
-                android:fontFamily="@font/lexenddecamedium" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvRegisterNow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/register_now"
-                android:textColor="@color/kindablue"
-                android:textSize="14sp"
+                android:fontFamily="@font/lexenddecabold"
+                android:text="@string/to_sensevisor"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/lexenddecalight"
+                android:text="@string/hello_there"
+                android:textColor="@color/kindagrey"
+                android:textSize="14sp" />
+
+            <!-- Email Field -->
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_edittext_rounded"
+                android:fontFamily="@font/lexenddecamedium"
+                android:hint="@string/enter_email"
+                android:inputType="textEmailAddress"
+                android:padding="12dp" />
+
+            <!-- Password Field -->
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_edittext_rounded"
+                android:drawableEnd="@drawable/ic_eye"
+                android:fontFamily="@font/lexenddecamedium"
+                android:hint="@string/enter_password"
+                android:inputType="textPassword"
+                android:padding="12dp" />
+
+            <!-- Forgot Password -->
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/lexenddecasemibold"
+                android:text="@string/forgot_password"
+                android:textColor="@color/grey"
+                android:textSize="14sp" />
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="32dp"
+                android:backgroundTint="@color/kindablack"
+                android:fontFamily="@font/lexenddecasemibold"
+                android:text="@string/login"
+                android:textColor="@android:color/white"
                 android:textStyle="bold"
-                android:fontFamily="@font/lexenddecasemibold" />
+                app:cornerRadius="8dp" />
+
+            <!-- Or Login With -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="2"
+                    android:background="@color/grey" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lexenddecabold"
+                    android:text="@string/or_login"
+                    android:textColor="@color/grey"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="2"
+                    android:background="@color/grey" />
+            </LinearLayout>
+
+            <!-- Google Login -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGoogleLogin"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/kindablue"
+                android:drawableStart="@drawable/icon_google"
+                android:fontFamily="@font/lexenddecasemibold"
+                android:text="@string/google_account"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:cornerRadius="8dp"
+                app:elevation="8dp"
+                app:icon="@drawable/icon_google"
+                app:iconTintMode="multiply" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:fontFamily="@font/lexenddecamedium"
+                    android:text="@string/dont_have_account"
+                    android:textColor="@color/grey"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvRegisterNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lexenddecasemibold"
+                    android:text="@string/register_now"
+                    android:textColor="@color/kindablue"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
+    <!-- Loading overlay -->
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</ScrollView>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/kindablue" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

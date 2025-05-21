@@ -2,6 +2,7 @@ package com.example.sensevisor.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -57,8 +58,11 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
+        showLoading(true)
+
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
+                showLoading(false)
                 if (task.isSuccessful) {
                     showToast("Login successful")
                     goToHome()
@@ -67,6 +71,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
+
 
     private fun goToRegister() {
         startActivity(Intent(this, RegisterActivity::class.java))
@@ -79,6 +84,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun goToForgotPassword() {
         startActivity(Intent(this, ForgotPasswordActivity::class.java))
+    }
+
+    private fun showLoading(show: Boolean) {
+        binding.loadingOverlay.visibility = if (show) View.VISIBLE else View.GONE
     }
 
     private fun showToast(message: String) {
