@@ -85,5 +85,8 @@
     <string name="submit">Submit</string>
     <string name="back">Back</string>
 
+    <!--Client ID GOOGLE-->
+    <string name="default_web_client_id">380355385213-s55du16bbskrhgpg3ttgo0591n7gc69d.apps.googleusercontent.com</string>
+
 
 </resources>

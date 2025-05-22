@@ -5,19 +5,47 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sensevisor.databinding.ActivityLoginBinding
 import com.example.sensevisor.utils.ViewUtils
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var googleSignInClient: GoogleSignInClient
+
+    private val googleSignInLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+            try {
+                val account = task.getResult(ApiException::class.java)!!
+                firebaseAuthWithGoogle(account)
+            } catch (e: ApiException) {
+                showToast("Google sign in failed: ${e.message}")
+                showLoading(false)
+            }
+        } else {
+            showLoading(false)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -27,13 +55,18 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         ViewUtils.setupPasswordToggle(binding.etPassword)
+        setupGoogleSignIn()
         setupListeners()
     }
 
+    private fun setupGoogleSignIn() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(com.example.sensevisor.R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+    }
 
     private fun setupListeners() {
         binding.tvRegisterNow.setOnClickListener {
@@ -46,6 +79,12 @@ class LoginActivity : AppCompatActivity() {
 
         binding.tvForgotPassword.setOnClickListener {
             goToForgotPassword()
+        }
+
+        binding.btnGoogleLogin.setOnClickListener {
+            showLoading(true)
+            val signInIntent = googleSignInClient.signInIntent
+            googleSignInLauncher.launch(signInIntent)
         }
     }
 
@@ -72,6 +111,19 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
+    private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+        firebaseAuth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                showLoading(false)
+                if (task.isSuccessful) {
+                    showToast("Google login successful")
+                    goToHome()
+                } else {
+                    showToast("Google login failed: ${task.exception?.message}")
+                }
+            }
+    }
 
     private fun goToRegister() {
         startActivity(Intent(this, RegisterActivity::class.java))
@@ -93,5 +145,4 @@ class LoginActivity : AppCompatActivity() {
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
-
 }
