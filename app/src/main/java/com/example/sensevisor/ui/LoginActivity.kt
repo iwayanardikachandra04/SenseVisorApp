@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.sensevisor.ui
 
 import android.content.Intent
@@ -83,9 +85,12 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnGoogleLogin.setOnClickListener {
             showLoading(true)
-            val signInIntent = googleSignInClient.signInIntent
-            googleSignInLauncher.launch(signInIntent)
+            googleSignInClient.signOut().addOnCompleteListener {
+                val signInIntent = googleSignInClient.signInIntent
+                googleSignInLauncher.launch(signInIntent)
+            }
         }
+
     }
 
     private fun handleLogin() {
